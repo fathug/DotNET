@@ -28,8 +28,8 @@ namespace WinForms
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            int w=this.Width;
-            int h=this.Height;
+            int w = this.Width;
+            int h = this.Height;
             this.Text = string.Format("当前窗口大小：{0}*{1}", w, h);
         }
     }
