@@ -21,10 +21,10 @@ namespace WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             SonForm1 sonForm1 = new SonForm1();     //实例化窗口
-            //sonForm1.Visible = false; //写不写都行
+            this.Hide();    //先隐藏父窗口
             sonForm1.ShowDialog();      //路径逻辑绑定的窗口
-            //sonForm1.Visible = true;
             Debug.WriteLine("子窗口1显示完毕");
+            this.Show();
         }
     }
 }
