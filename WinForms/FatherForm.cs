@@ -23,7 +23,7 @@ namespace WinForms
             SonForm1 sonForm1 = new SonForm1();     //实例化窗口
             this.Hide();    //先隐藏父窗口
             sonForm1.ShowDialog();      //路径逻辑绑定的窗口
-            Debug.WriteLine("子窗口1显示完毕");
+            //Debug.WriteLine("子窗口1显示完毕");
             this.Show();
         }
     }
