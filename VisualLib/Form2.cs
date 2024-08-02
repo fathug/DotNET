@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,6 @@ namespace VisualLib
             pictureBox1.MouseMove += pictureBox1_MouseMove;
             pictureBox1.MouseUp += pictureBox1_MouseUp;
             pictureBox1.Paint += pictureBox1_Paint;
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -130,26 +130,22 @@ namespace VisualLib
                             }
                         }
                         break;
-
                 }
 
                 startPoint = e.Location;
                 pictureBox1.Invalidate();
             }
-            else
+            else if (isMoving)
             {
                 // 移动整个矩形
                 //if (e.Button == MouseButtons.Left)
-                if (isMoving)
-                {
-                    int deltaX = e.X - startPoint.X;
-                    int deltaY = e.Y - startPoint.Y;
-                    selectionRectangle.X += deltaX;
-                    selectionRectangle.Y += deltaY;
+                int deltaX = e.X - startPoint.X;
+                int deltaY = e.Y - startPoint.Y;
+                selectionRectangle.X += deltaX;
+                selectionRectangle.Y += deltaY;
 
-                    startPoint = e.Location;
-                    pictureBox1.Invalidate();
-                }
+                startPoint = e.Location;
+                pictureBox1.Invalidate();
             }
         }
 
@@ -178,7 +174,7 @@ namespace VisualLib
 
         private Rectangle[] GetResizeHandles()
         {
-            int resizeHandleSize = 10;  // 手柄矩形大小
+            const int resizeHandleSize = 10;  // 手柄矩形大小
             Rectangle[] handles = new Rectangle[8];
             // 角点顺序为左上、右上、右下、左下
             handles[0] = new Rectangle(selectionRectangle.X - resizeHandleSize / 2, selectionRectangle.Y - resizeHandleSize / 2, resizeHandleSize, resizeHandleSize);
